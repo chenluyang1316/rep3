@@ -1,0 +1,19 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/leyou
+    username: root
+    password: root
+mybatis:
+  type-aliases-package: page.model
+  mapper-locations: classpath:mapper/*.xml
+  #configuration:
+    #aggressive-lazy-loading: false #开启延迟加载(分步查询时)
+    #lazy-loading-enabled: true
+pagehelper:
+  helper-dialect: mysql  # 分页插件使用方言,oracle,mysql
+  reasonable: true  #分页合理化参数，默认值为false。#设置为 true 时，pageNum<=0 时会查询第一页，# pageNum>pages（超过总数时），会查询最后一页。
+  support-methods-arguments: true   # 支持通过 Mapper 接口参数来传递分页参数，默认值false
+  params: count=countSql   #了支持startPage(Object params)方法，增加了该参数来配置参数映射
